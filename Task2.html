@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #divMain1{
+            display: none;
+        }
+        #divMain2{
+            display: none;
+        }
+        #divMain3{
+            display: none;
+        }
+        #divMain4{
+            display: none;
+        }
+    </style>
+   
+</head>
+<body>
+    
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+
+    <div id="divMain1"></div>
+    <div id="divMain2"></div>
+    <div id="divMain3"></div>
+    <div id="divMain4"></div>
+
+   
+
+    <script>  
+        
+        var btn_tag = document.getElementsByTagName("button");
+
+        btn_tag[0].innerText = "Men's Clothing";
+
+
+        btn_tag[1].innerText = "Women's Clothing";
+
+        btn_tag[2].innerText = "Electronics";
+
+        btn_tag[3].innerText = "Jewelery";
+
+       
+        var mensData = JSON.parse(localStorage.getItem("men"));
+
+        
+
+        var womenData = JSON.parse(localStorage.getItem("women"));
+
+        var Electronics = JSON.parse(localStorage.getItem("elect"));
+
+        var Jewelery = JSON.parse(localStorage.getItem("jewel"));
+
+
+        
+        var divMain1 = document.getElementById("divMain1")
+
+        var divMain2 = document.getElementById("divMain2");
+
+        var divMain3 = document.getElementById("divMain3");
+
+        var divMain4 = document.getElementById("divMain4");
+
+
+
+
+
+
+
+
+
+        btn_tag[0].addEventListener("click", hello1);
+
+        btn_tag[1].addEventListener("click", hello2);
+
+        btn_tag[2].addEventListener("click", hello3);
+
+        btn_tag[3].addEventListener("click", hello4);
+
+        function hello1(){
+            for(i=0; i<mensData.length; i++){
+
+                var div1 = document.createElement("div");
+
+                var img_tag = document.createElement("img");
+                img_tag.src = mensData[i].image;
+                img_tag.height = 200;
+                img_tag.width = 200;
+
+                var h1get = document.createElement("h1");
+                h1get.innerText = mensData[i].title;
+
+                var para1 = document.createElement("p");
+                para1.innerText = mensData[i].description;
+
+                div1.appendChild(img_tag);
+                div1.appendChild(h1get);
+                div1.appendChild(para1);
+                divMain1.appendChild(div1);
+
+               divMain1.style.display = "block";
+               divMain2.style.display = "none";
+               divMain3.style.display = "none";
+               divMain4.style.display = "none";
+
+               
+            }
+
+            
+        }
+
+        function hello2(){
+            for(i=0; i<womenData.length; i++){
+
+                var div1 = document.createElement("div");
+
+                var img_tag = document.createElement("img");
+                img_tag.src = womenData[i].image;
+                img_tag.height = 200;
+                img_tag.width = 200;
+
+                var h1get = document.createElement("h1");
+                h1get.innerText = womenData[i].title;
+
+                var para1 = document.createElement("p");
+                para1.innerText = womenData[i].description;
+
+                div1.appendChild(img_tag);
+                div1.appendChild(h1get);
+                div1.appendChild(para1);
+                divMain2.appendChild(div1);
+
+                // divMain[0].style.display = "none";
+                // divMain[1].style.display = "block";
+                // divMain[2].style.display = "none";
+                // divMain[3].style.display = "none";
+                divMain1.style.display = "none";
+               divMain2.style.display = "block";
+               divMain3.style.display = "none";
+               divMain4.style.display = "none";
+            }
+
+            
+        }
+
+        function hello3(){
+            for(i=0; i<Electronics.length; i++){
+
+                var div1 = document.createElement("div");
+
+                var img_tag = document.createElement("img");
+                img_tag.src = Electronics[i].image;
+                img_tag.height = 200;
+                img_tag.width = 200;
+
+                var h1get = document.createElement("h1");
+                h1get.innerText = Electronics[i].title;
+
+                var para1 = document.createElement("p");
+                para1.innerText = Electronics[i].description;
+
+                div1.appendChild(img_tag);
+                div1.appendChild(h1get);
+                div1.appendChild(para1);
+                divMain3.appendChild(div1);
+
+                // divMain[0].style.display = "none";
+                // divMain[1].style.display = "none";
+                // divMain[2].style.display = "block";
+                // divMain[3].style.display = "none";
+                divMain1.style.display = "none";
+               divMain2.style.display = "none";
+               divMain3.style.display = "block";
+               divMain4.style.display = "none";
+            }
+
+            
+        }
+
+        function hello4(){
+            for(i=0; i<Jewelery.length; i++){
+
+                var div1 = document.createElement("div");
+
+                var img_tag = document.createElement("img");
+                img_tag.src = Jewelery[i].image;
+                img_tag.height = 200;
+                img_tag.width = 200;
+
+                var h1get = document.createElement("h1");
+                h1get.innerText = Jewelery[i].title;
+
+                var para1 = document.createElement("p");
+                para1.innerText = Jewelery[i].description;
+
+                div1.appendChild(img_tag);
+                div1.appendChild(h1get);
+                div1.appendChild(para1);
+                divMain4.appendChild(div1);
+
+                // divMain[0].style.display = "none";
+                // divMain[1].style.display = "none";
+                // divMain[2].style.display = "none";
+                // divMain[3].style.display = "block";
+
+
+                divMain1.style.display = "none";
+               divMain2.style.display = "none";
+               divMain3.style.display = "none";
+               divMain4.style.display = "block";
+            }
+
+            
+        }
+
+    </script>
+</body>
+</html>
